@@ -115,6 +115,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void adiconarEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adiconarEventoActionPerformed
         // TODO add your handling code here:
+        NovoEvento novoEvento = new NovoEvento();
+        desktopPanelDaPrincipal.add(novoEvento);
+        novoEvento.setVisible(true);
     }//GEN-LAST:event_adiconarEventoActionPerformed
 
     /**
