@@ -9,7 +9,8 @@ package com.mycompany.forget_less;
  *
  * @author joaov
  */
-public class main {
-    //comentário
-    //inhaiveyrr
+public class  main {
+     public static void main(String args[]) {
+    System.out.println("Alo pessoal!");
+  }
 }
