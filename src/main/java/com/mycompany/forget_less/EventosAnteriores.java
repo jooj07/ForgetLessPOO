@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-//anacatota
 package com.mycompany.forget_less;
 
 /**
