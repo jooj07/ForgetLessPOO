@@ -34,8 +34,8 @@ public class NovoEvento extends javax.swing.JInternalFrame {
         descricaoDoEvento = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        data = new javax.swing.JFormattedTextField();
         botaoConfirmaAdicionarEvento = new javax.swing.JButton();
+        campoData = new javax.swing.JFormattedTextField();
 
         jPanel1.setBackground(new java.awt.Color(75, 75, 185));
 
@@ -62,17 +62,16 @@ public class NovoEvento extends javax.swing.JInternalFrame {
         jLabel3.setForeground(new java.awt.Color(252, 252, 252));
         jLabel3.setText("Data do Evento");
 
-        data.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dataActionPerformed(evt);
-            }
-        });
-
         botaoConfirmaAdicionarEvento.setBackground(new java.awt.Color(31, 31, 43));
         botaoConfirmaAdicionarEvento.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         botaoConfirmaAdicionarEvento.setForeground(new java.awt.Color(31, 31, 43));
-        botaoConfirmaAdicionarEvento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/forget_less/images/icons8_checkmark_15px.png"))); // NOI18N
         botaoConfirmaAdicionarEvento.setText("OK");
+
+        try {
+            campoData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -88,17 +87,16 @@ public class NovoEvento extends javax.swing.JInternalFrame {
                             .addComponent(jLabel3))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(data, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
-                            .addComponent(NomeDoEvento))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
+                            .addComponent(NomeDoEvento, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(botaoConfirmaAdicionarEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(campoData, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botaoConfirmaAdicionarEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,7 +112,7 @@ public class NovoEvento extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(campoData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addComponent(botaoConfirmaAdicionarEvento)
                 .addContainerGap())
@@ -138,15 +136,11 @@ public class NovoEvento extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_NomeDoEventoActionPerformed
 
-    private void dataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dataActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField NomeDoEvento;
     private javax.swing.JButton botaoConfirmaAdicionarEvento;
-    private javax.swing.JFormattedTextField data;
+    private javax.swing.JFormattedTextField campoData;
     private javax.swing.JTextArea descricaoDoEvento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

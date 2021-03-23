@@ -32,12 +32,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         adiconarEvento = new javax.swing.JButton();
+        proximosEventos = new javax.swing.JButton();
+        EventosAnteriores = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(107, 107, 107));
         setResizable(false);
 
         desktopPanelDaPrincipal.setBackground(new java.awt.Color(107, 107, 107));
+        desktopPanelDaPrincipal.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
 
         javax.swing.GroupLayout desktopPanelDaPrincipalLayout = new javax.swing.GroupLayout(desktopPanelDaPrincipal);
         desktopPanelDaPrincipal.setLayout(desktopPanelDaPrincipalLayout);
@@ -61,7 +64,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         adiconarEvento.setBackground(new java.awt.Color(107, 107, 255));
         adiconarEvento.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        adiconarEvento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/forget_less/images/icons8_plus_math_15px.png"))); // NOI18N
         adiconarEvento.setText("Adiconar evento");
         adiconarEvento.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         adiconarEvento.addActionListener(new java.awt.event.ActionListener() {
@@ -70,17 +72,35 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        proximosEventos.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        proximosEventos.setText("Próximos eventos");
+        proximosEventos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                proximosEventosActionPerformed(evt);
+            }
+        });
+
+        EventosAnteriores.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        EventosAnteriores.setText("Eventos concluídos");
+        EventosAnteriores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EventosAnterioresActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout painelLateralLayout = new javax.swing.GroupLayout(painelLateral);
         painelLateral.setLayout(painelLateralLayout);
         painelLateralLayout.setHorizontalGroup(
             painelLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelLateralLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(24, 24, 24)
                 .addGroup(painelLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(EventosAnteriores)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(adiconarEvento))
-                .addContainerGap(30, Short.MAX_VALUE))
+                    .addComponent(adiconarEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(proximosEventos, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
         painelLateralLayout.setVerticalGroup(
             painelLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,8 +109,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addGap(36, 36, 36)
                 .addComponent(adiconarEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(proximosEventos, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(EventosAnteriores, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -116,36 +140,45 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void adiconarEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adiconarEventoActionPerformed
         // TODO add your handling code here:
         NovoEvento novoEvento = new NovoEvento();
+        desktopPanelDaPrincipal.removeAll();
+        desktopPanelDaPrincipal.repaint();
         desktopPanelDaPrincipal.add(novoEvento);
         novoEvento.setVisible(true);
     }//GEN-LAST:event_adiconarEventoActionPerformed
+
+    private void proximosEventosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proximosEventosActionPerformed
+        // TODO add your handling code here:
+        EventosProximos ProximosEventos = new EventosProximos();
+        desktopPanelDaPrincipal.removeAll();
+         desktopPanelDaPrincipal.repaint();
+        desktopPanelDaPrincipal.add(ProximosEventos);
+        ProximosEventos.setVisible(true);
+    }//GEN-LAST:event_proximosEventosActionPerformed
+
+    private void EventosAnterioresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EventosAnterioresActionPerformed
+        // TODO add your handling code here:
+        EventosAnteriores EventosPassados = new EventosAnteriores();
+        desktopPanelDaPrincipal.removeAll();
+         desktopPanelDaPrincipal.repaint();
+        desktopPanelDaPrincipal.add(EventosPassados);
+        EventosPassados.setVisible(true);
+    }//GEN-LAST:event_EventosAnterioresActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -156,10 +189,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton EventosAnteriores;
     private javax.swing.JButton adiconarEvento;
     private javax.swing.JDesktopPane desktopPanelDaPrincipal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel painelLateral;
+    private javax.swing.JButton proximosEventos;
     // End of variables declaration//GEN-END:variables
 }
