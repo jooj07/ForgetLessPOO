@@ -4,31 +4,36 @@
  * and open the template in the editor.
  */
 package com.mycompany.forget_less;
+
 import com.mycompany.forget_less.bean.Eventos;
 import com.mycompany.forget_less.dao.EventosDAO;
 import java.awt.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author joaov
  */
 public class EventosProximos extends javax.swing.JInternalFrame {
-    
+
     /**
      * Creates new form EventosProximos
      */
 //    TabelaProximosEventos tableModel = new TabelaProximosEventos ();
-    
     public EventosProximos() {
         initComponents();
-        
+
         EventosDAO pdao = new EventosDAO();
-        java.util.List <Eventos> lista = pdao.getListaEvento();
-        
-        for(Eventos eve : lista){
-            
-            
-            
+        java.util.List<Eventos> lista = pdao.getListaEvento();
+
+        DefaultTableModel tabelaModel = (DefaultTableModel) TabelaProximosEventos.getModel();
+        tabelaModel.setRowCount(0);
+
+        for (Eventos eve : lista) {
+                 Object[] linha = new Object[]{
+                     eve.getData(), eve.getNomeEvento(), eve.getDescricaoEvento()
+                 };
+                 tabelaModel.addRow(linha);
         }
     }
 
@@ -71,7 +76,7 @@ public class EventosProximos extends javax.swing.JInternalFrame {
                 java.lang.Object.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, true
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -83,6 +88,10 @@ public class EventosProximos extends javax.swing.JInternalFrame {
             }
         });
         jScrollPane1.setViewportView(TabelaProximosEventos);
+        if (TabelaProximosEventos.getColumnModel().getColumnCount() > 0) {
+            TabelaProximosEventos.getColumnModel().getColumn(0).setResizable(false);
+            TabelaProximosEventos.getColumnModel().getColumn(1).setResizable(false);
+        }
 
         excluirEventoBotao.setText("Excluir evento");
 
