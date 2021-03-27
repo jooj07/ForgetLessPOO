@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package com.mycompany.forget_less;
+import com.mycompany.forget_less.bean.Eventos;
+import com.mycompany.forget_less.dao.EventosDAO;
+import java.awt.List;
 
 /**
  *
@@ -19,6 +22,14 @@ public class EventosProximos extends javax.swing.JInternalFrame {
     public EventosProximos() {
         initComponents();
         
+        EventosDAO pdao = new EventosDAO();
+        java.util.List <Eventos> lista = pdao.getListaEvento();
+        
+        for(Eventos eve : lista){
+            
+            
+            
+        }
     }
 
     /**
@@ -35,6 +46,7 @@ public class EventosProximos extends javax.swing.JInternalFrame {
         concluirProximos = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TabelaProximosEventos = new javax.swing.JTable();
+        excluirEventoBotao = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(107, 107, 107));
         setPreferredSize(new java.awt.Dimension(847, 547));
@@ -49,10 +61,7 @@ public class EventosProximos extends javax.swing.JInternalFrame {
         TabelaProximosEventos.setBackground(new java.awt.Color(107, 107, 107));
         TabelaProximosEventos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Data", "Título", "Descrição"
@@ -75,6 +84,8 @@ public class EventosProximos extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(TabelaProximosEventos);
 
+        excluirEventoBotao.setText("Excluir evento");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -82,15 +93,17 @@ public class EventosProximos extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(excluirEventoBotao)
+                        .addGap(18, 18, 18)
                         .addComponent(concluirProximos, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 758, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 489, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -100,10 +113,12 @@ public class EventosProximos extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addGap(2, 2, 2)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 307, Short.MAX_VALUE)
-                .addComponent(concluirProximos)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(concluirProximos)
+                    .addComponent(excluirEventoBotao))
                 .addContainerGap())
         );
 
@@ -114,6 +129,7 @@ public class EventosProximos extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TabelaProximosEventos;
     private javax.swing.JButton concluirProximos;
+    private javax.swing.JButton excluirEventoBotao;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
