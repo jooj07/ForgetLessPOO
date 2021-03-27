@@ -5,6 +5,8 @@
  */
 package com.mycompany.forget_less;
 
+import com.mycompany.forget_less.dao.EventosDAO;
+
 /**
  *
  * @author joaov
@@ -186,6 +188,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 new TelaPrincipal().setVisible(true);
             }
         });
+       EventosDAO evento = new EventosDAO(); 
+       evento.criarEvento();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -7,7 +7,7 @@
         
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         
-        <class>com.mycompany.Forget_Less.bean.Eventos</class>
+        <class>com.mycompany.forget_less.beans</class>
        
       
         <properties>
