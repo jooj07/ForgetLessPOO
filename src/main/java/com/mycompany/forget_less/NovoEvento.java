@@ -13,11 +13,9 @@ import javax.swing.JOptionPane;
  * @author joaov
  */
 public class NovoEvento extends javax.swing.JInternalFrame {
+    
 
-    /**
-     * Creates new form NovoEvento
-     */
-    public NovoEvento() {
+public NovoEvento() {
         initComponents();
     }
 

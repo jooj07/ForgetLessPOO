@@ -19,7 +19,7 @@ public class EventosProximos extends javax.swing.JInternalFrame {
     /**
      * Creates new form EventosProximos
      */
-//    TabelaProximosEventos tableModel = new TabelaProximosEventos ();
+    
     public EventosProximos() {
         initComponents();
 
