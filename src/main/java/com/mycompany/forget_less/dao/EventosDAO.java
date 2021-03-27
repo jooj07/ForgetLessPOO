@@ -12,12 +12,12 @@ public class EventosDAO {
         EventosDAO.em = Persistence.createEntityManagerFactory("myPU").createEntityManager();
     }
 
-    public void criarEvento(){
+    public void criarEvento(String nome, String data, String descricao) {
         Eventos evento = new Eventos();
-        evento.setNomeEvento("Aniversário do Mc Beyoncé");
-        evento.setData("04/09/2021");
-        evento.setDescricaoEvento("Cachorro-quente e guaraná quente");
-        
+        evento.setNomeEvento(nome);
+        evento.setData(data);
+        evento.setDescricaoEvento(descricao);
+
         em.getTransaction().begin();
         em.persist(evento);
         em.getTransaction().commit();

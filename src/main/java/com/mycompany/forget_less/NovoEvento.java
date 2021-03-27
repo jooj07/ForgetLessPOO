@@ -5,6 +5,9 @@
  */
 package com.mycompany.forget_less;
 
+import com.mycompany.forget_less.dao.EventosDAO;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author joaov
@@ -66,6 +69,11 @@ public class NovoEvento extends javax.swing.JInternalFrame {
         botaoConfirmaAdicionarEvento.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         botaoConfirmaAdicionarEvento.setForeground(new java.awt.Color(31, 31, 43));
         botaoConfirmaAdicionarEvento.setText("OK");
+        botaoConfirmaAdicionarEvento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoConfirmaAdicionarEventoActionPerformed(evt);
+            }
+        });
 
         try {
             campoData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -135,6 +143,18 @@ public class NovoEvento extends javax.swing.JInternalFrame {
     private void NomeDoEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeDoEventoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NomeDoEventoActionPerformed
+
+    private void botaoConfirmaAdicionarEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConfirmaAdicionarEventoActionPerformed
+        EventosDAO edao = new EventosDAO();
+       try{
+        edao.criarEvento(NomeDoEvento.getText(), campoData.getText(), descricaoDoEvento.getText());
+        JOptionPane.showMessageDialog(null, "Evento cadastrado com sucesso ","Feito!",JOptionPane.INFORMATION_MESSAGE);
+       }
+       catch(Exception e){
+           JOptionPane.showMessageDialog(null, "Erro no cadastro do evento","Erro",JOptionPane.ERROR_MESSAGE);
+       }
+
+    }//GEN-LAST:event_botaoConfirmaAdicionarEventoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

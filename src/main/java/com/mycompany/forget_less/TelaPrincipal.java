@@ -152,7 +152,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         EventosProximos ProximosEventos = new EventosProximos();
         desktopPanelDaPrincipal.removeAll();
-         desktopPanelDaPrincipal.repaint();
+        desktopPanelDaPrincipal.repaint();
         desktopPanelDaPrincipal.add(ProximosEventos);
         ProximosEventos.setVisible(true);
     }//GEN-LAST:event_proximosEventosActionPerformed
@@ -161,7 +161,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         EventosAnteriores EventosPassados = new EventosAnteriores();
         desktopPanelDaPrincipal.removeAll();
-         desktopPanelDaPrincipal.repaint();
+        desktopPanelDaPrincipal.repaint();
         desktopPanelDaPrincipal.add(EventosPassados);
         EventosPassados.setVisible(true);
     }//GEN-LAST:event_EventosAnterioresActionPerformed
@@ -188,8 +188,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 new TelaPrincipal().setVisible(true);
             }
         });
-       EventosDAO evento = new EventosDAO(); 
-       evento.criarEvento();
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
