@@ -42,7 +42,7 @@ public class EventosProximos extends javax.swing.JInternalFrame {
         jLabel1.setBackground(new java.awt.Color(252, 252, 252));
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(252, 252, 252));
-        jLabel1.setText("Eventos próximos");
+        jLabel1.setText("Próximos eventos");
 
         concluirProximos.setText("Concluir");
 
