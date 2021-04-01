@@ -8,6 +8,7 @@ package com.mycompany.forget_less;
 import com.mycompany.forget_less.bean.Eventos;
 import com.mycompany.forget_less.dao.EventosDAO;
 import java.awt.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,7 +20,6 @@ public class EventosProximos extends javax.swing.JInternalFrame {
     /**
      * Creates new form EventosProximos
      */
-    
     public EventosProximos() {
         initComponents();
 
@@ -30,10 +30,10 @@ public class EventosProximos extends javax.swing.JInternalFrame {
         tabelaModel.setRowCount(0);
 
         for (Eventos eve : lista) {
-                 Object[] linha = new Object[]{
-                     eve.getData(), eve.getNomeEvento(), eve.getDescricaoEvento()
-                 };
-                 tabelaModel.addRow(linha);
+            Object[] linha = new Object[]{
+                eve.getId(),eve.getData(), eve.getNomeEvento(), eve.getDescricaoEvento()
+            };
+            tabelaModel.addRow(linha);
         }
     }
 
@@ -48,10 +48,10 @@ public class EventosProximos extends javax.swing.JInternalFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        concluirProximos = new javax.swing.JButton();
+        excluirEventos = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TabelaProximosEventos = new javax.swing.JTable();
-        excluirEventoBotao = new javax.swing.JButton();
+        editarEventoBotao = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(107, 107, 107));
         setPreferredSize(new java.awt.Dimension(847, 547));
@@ -61,22 +61,27 @@ public class EventosProximos extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(252, 252, 252));
         jLabel1.setText("Próximos eventos");
 
-        concluirProximos.setText("Concluir");
+        excluirEventos.setText("excluir");
+        excluirEventos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excluirEventosActionPerformed(evt);
+            }
+        });
 
-        TabelaProximosEventos.setBackground(new java.awt.Color(107, 107, 107));
+        TabelaProximosEventos.setBackground(new java.awt.Color(240, 240, 240));
         TabelaProximosEventos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Data", "Título", "Descrição"
+                "Id", "Data", "Título", "Descrição"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -91,9 +96,15 @@ public class EventosProximos extends javax.swing.JInternalFrame {
         if (TabelaProximosEventos.getColumnModel().getColumnCount() > 0) {
             TabelaProximosEventos.getColumnModel().getColumn(0).setResizable(false);
             TabelaProximosEventos.getColumnModel().getColumn(1).setResizable(false);
+            TabelaProximosEventos.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        excluirEventoBotao.setText("Excluir evento");
+        editarEventoBotao.setText("editar");
+        editarEventoBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarEventoBotaoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,9 +116,9 @@ public class EventosProximos extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(excluirEventoBotao)
+                        .addComponent(editarEventoBotao)
                         .addGap(18, 18, 18)
-                        .addComponent(concluirProximos, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(excluirEventos, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -126,19 +137,44 @@ public class EventosProximos extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(concluirProximos)
-                    .addComponent(excluirEventoBotao))
+                    .addComponent(excluirEventos)
+                    .addComponent(editarEventoBotao))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void editarEventoBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarEventoBotaoActionPerformed
+        // TODO add your handling code here:
+        
+
+    }//GEN-LAST:event_editarEventoBotaoActionPerformed
+
+    private void excluirEventosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirEventosActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel tm = (DefaultTableModel) TabelaProximosEventos.getModel();
+        Object codObj =TabelaProximosEventos.getValueAt(TabelaProximosEventos.getSelectedRow(), 0);
+        
+        int IdEvento = (int) codObj;
+
+        EventosDAO evDao = new EventosDAO();
+        Eventos ev = new Eventos();
+        ev = evDao.getEventos(IdEvento);
+        
+        String mensagem = "Deseja apagar : "+ ev.getNomeEvento()+"?";
+        if(JOptionPane.showConfirmDialog(this, mensagem, "Confirmar exclusão",
+                JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
+            evDao. excluirEvento(ev);
+            JOptionPane.showMessageDialog(null, "Evento excluído com sucesso","Exclusão de evento",JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_excluirEventosActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TabelaProximosEventos;
-    private javax.swing.JButton concluirProximos;
-    private javax.swing.JButton excluirEventoBotao;
+    private javax.swing.JButton editarEventoBotao;
+    private javax.swing.JButton excluirEventos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;

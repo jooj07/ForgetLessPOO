@@ -13,10 +13,12 @@ import javax.swing.JOptionPane;
  *
  * @author joaov
  */
-public class NovoEvento extends javax.swing.JInternalFrame {
-    
+public class EditarEventos extends javax.swing.JInternalFrame {
 
-public NovoEvento() {
+    /**
+     * Creates new form EditarEventos
+     */
+    public EditarEventos() {
         initComponents();
     }
 
@@ -90,7 +92,8 @@ public NovoEvento() {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addComponent(jLabel2))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,10 +105,7 @@ public NovoEvento() {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(campoData, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,14 +147,12 @@ public NovoEvento() {
 
     private void botaoConfirmaAdicionarEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConfirmaAdicionarEventoActionPerformed
         EventosDAO edao = new EventosDAO();
-       try{
-        edao.criarEvento(NomeDoEvento.getText(), campoData.getText(), descricaoDoEvento.getText());
-        JOptionPane.showMessageDialog(null, "Evento cadastrado com sucesso ","Feito!",JOptionPane.INFORMATION_MESSAGE);
-       }
-       catch(Exception e){
-           JOptionPane.showMessageDialog(null, "Erro no cadastro do evento","Erro",JOptionPane.ERROR_MESSAGE);
-       }
-
+        try {
+            edao.criarEvento(NomeDoEvento.getText(), campoData.getText(), descricaoDoEvento.getText());
+            JOptionPane.showMessageDialog(null, "Evento cadastrado com sucesso ", "Feito!", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro no cadastro do evento", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_botaoConfirmaAdicionarEventoActionPerformed
 
 

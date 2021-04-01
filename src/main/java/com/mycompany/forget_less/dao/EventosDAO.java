@@ -28,4 +28,14 @@ public class EventosDAO {
         
         return em.createQuery("from Eventos").getResultList();
     }
+    public Eventos getEventos(int idEvento){
+        Eventos evnt = em.find(Eventos.class, idEvento);
+        return evnt;
+    }
+    public void excluirEvento(Eventos ev){
+        em.getTransaction().begin();
+        em.remove(ev);
+        em.getTransaction().commit();
+        em.close();
+    }
 }
