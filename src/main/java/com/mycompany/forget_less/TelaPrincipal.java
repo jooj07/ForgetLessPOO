@@ -35,7 +35,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         adiconarEvento = new javax.swing.JButton();
         proximosEventos = new javax.swing.JButton();
-        EventosAnteriores = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(107, 107, 107));
@@ -82,14 +81,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        EventosAnteriores.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        EventosAnteriores.setText("Eventos concluídos");
-        EventosAnteriores.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EventosAnterioresActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout painelLateralLayout = new javax.swing.GroupLayout(painelLateral);
         painelLateral.setLayout(painelLateralLayout);
         painelLateralLayout.setHorizontalGroup(
@@ -97,7 +88,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(painelLateralLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(painelLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(EventosAnteriores)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(adiconarEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -115,8 +105,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(adiconarEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(proximosEventos, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(EventosAnteriores, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -150,21 +138,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void proximosEventosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proximosEventosActionPerformed
         // TODO add your handling code here:
-        EventosProximos ProximosEventos = new EventosProximos();
+        EventosProximos ProximosEventos = new EventosProximos(this);
         desktopPanelDaPrincipal.removeAll();
         desktopPanelDaPrincipal.repaint();
         desktopPanelDaPrincipal.add(ProximosEventos);
         ProximosEventos.setVisible(true);
     }//GEN-LAST:event_proximosEventosActionPerformed
-
-    private void EventosAnterioresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EventosAnterioresActionPerformed
-        // TODO add your handling code here:
-        EventosAnteriores EventosPassados = new EventosAnteriores();
-        desktopPanelDaPrincipal.removeAll();
-        desktopPanelDaPrincipal.repaint();
-        desktopPanelDaPrincipal.add(EventosPassados);
-        EventosPassados.setVisible(true);
-    }//GEN-LAST:event_EventosAnterioresActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,7 +171,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton EventosAnteriores;
     private javax.swing.JButton adiconarEvento;
     private javax.swing.JDesktopPane desktopPanelDaPrincipal;
     private javax.swing.JLabel jLabel1;

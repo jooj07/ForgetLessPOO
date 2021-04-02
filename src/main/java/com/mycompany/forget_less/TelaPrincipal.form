@@ -78,7 +78,6 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="EventosAnteriores" min="-2" max="-2" attributes="0"/>
                       <Component id="jSeparator1" min="-2" pref="194" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" pref="210" max="-2" attributes="0"/>
                       <Component id="adiconarEvento" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
@@ -99,8 +98,6 @@
                   <Component id="adiconarEvento" min="-2" pref="32" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   <Component id="proximosEventos" min="-2" pref="32" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="EventosAnteriores" min="-2" pref="33" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -152,17 +149,6 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="proximosEventosActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="EventosAnteriores">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Century Gothic" size="11" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Eventos conclu&#xed;dos"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EventosAnterioresActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

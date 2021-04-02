@@ -17,10 +17,10 @@ import javax.swing.table.DefaultTableModel;
  */
 public class EventosProximos extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form EventosProximos
-     */
-    public EventosProximos() {
+    TelaPrincipal telaPrincipal;
+    
+    public EventosProximos(TelaPrincipal telaPrincipal) {
+        this.telaPrincipal = telaPrincipal;
         initComponents();
 
         EventosDAO pdao = new EventosDAO();
@@ -146,7 +146,7 @@ public class EventosProximos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void editarEventoBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarEventoBotaoActionPerformed
-        // TODO add your handling code here:
+        // editar
         
 
     }//GEN-LAST:event_editarEventoBotaoActionPerformed
@@ -166,7 +166,9 @@ public class EventosProximos extends javax.swing.JInternalFrame {
         if(JOptionPane.showConfirmDialog(this, mensagem, "Confirmar exclusão",
                 JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
             evDao. excluirEvento(ev);
-            JOptionPane.showMessageDialog(null, "Evento excluído com sucesso","Exclusão de evento",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Evento excluído com sucesso, clique em 'Próximos Eventos' para atualizar","Exclusão de evento",JOptionPane.INFORMATION_MESSAGE);
+            telaPrincipal.remove(this);
+            telaPrincipal.repaint();
         }
     }//GEN-LAST:event_excluirEventosActionPerformed
 
